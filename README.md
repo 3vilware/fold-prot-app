@@ -1,5 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+This project completes https://github.com/3vilware/protAPI as FrontEnd part.
 ## Available Scripts
 
 In the project directory, you can run:
