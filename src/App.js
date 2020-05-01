@@ -1,6 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+
+import Login from './views/Login/Login'
+import SingleFold from './views/SingleFold/SingleFold'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,8 +12,6 @@ import {
   Link
 } from "react-router-dom";
 
-import ProteinPlot from '../src/components/ProteinPlot/ProteinPlot'
-import Login from './views/Login/Login'
 
 function App() {
   return (
@@ -17,7 +19,7 @@ function App() {
      <Router>
 
         <Route path="/fold">
-          <ProteinPlot/>
+          <SingleFold/>
         </Route>
 
         <Route path="/login">

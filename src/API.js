@@ -11,7 +11,7 @@ function genericGet(endpoint){
 }
 
 function genericPost(endpoint, params){
-    console.log("Sending", params);
+    console.log("*****************************\nSending", params);
     return axios.post(API_URL + endpoint, 
         params, 
         {headers: {
@@ -51,6 +51,12 @@ const API = {
        return genericGet('run_job')
         .then(response =>  response.data)
         .catch(err => console.log("Error:", err))
+    },
+
+    runJob(params){
+        return genericPost('run_job', params)
+         .then(response =>  response.data)
+         .catch(err => console.log("Error:", err))
     }
 }
 

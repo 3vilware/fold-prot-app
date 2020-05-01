@@ -34,7 +34,7 @@ const Login = (props) => {
             username: user,
             password: password,
             email: email,
-            first_name, first_name
+            first_name: first_name
         })
         console.log(response)
     }
