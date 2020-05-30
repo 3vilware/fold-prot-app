@@ -4,6 +4,8 @@ import './App.css';
 
 import Login from './views/Login/Login'
 import SingleFold from './views/SingleFold/SingleFold'
+import HomeView from './views/HomeView/HomeView'
+import HistoryView from './views/HistoryView/HistoryView'
 
 import {
   BrowserRouter as Router,
@@ -17,6 +19,16 @@ function App() {
   return (
     <div className="App">
      <Router>
+
+        {/* <Route path="/">
+          <HomeView/>
+        </Route>
+         */}
+         
+        <Route path="/">
+          <HomeView/>
+        </Route>
+
 
         <Route path="/fold">
           <SingleFold/>

@@ -57,6 +57,12 @@ const API = {
         return genericPost('run_job', params)
          .then(response =>  response.data)
          .catch(err => console.log("Error:", err))
+    },
+
+    getJobs(){
+        return genericGet('run_job')
+         .then(response =>  response.data)
+         .catch(err => console.log("Error:", err))
     }
 }
 
