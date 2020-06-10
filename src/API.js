@@ -10,6 +10,27 @@ function genericGet(endpoint){
     }})
 }
 
+function genericPut(endpoint, id, params){
+
+    return axios.put(API_URL + endpoint + '/' + String(id), 
+        params,
+    {
+        headers: {
+        'Authorization': 'Token cfeba2fe43d89c2ee12831c7ee2431fa9594a9d7'
+        }
+    })
+}
+
+function genericDelete(endpoint, id){
+
+    return axios.delete(API_URL + endpoint + '/' + String(id), 
+    {
+        headers: {
+        'Authorization': 'Token cfeba2fe43d89c2ee12831c7ee2431fa9594a9d7'
+        }
+    })
+}
+
 function genericPost(endpoint, params){
     console.log("*****************************\nSending", params);
     return axios.post(API_URL + endpoint, 
@@ -63,7 +84,39 @@ const API = {
         return genericGet('run_job')
          .then(response =>  response.data)
          .catch(err => console.log("Error:", err))
-    }
+    },
+
+    getModels(){
+        return genericGet('models')
+         .then(response =>  response.data)
+         .catch(err => console.log("Error:", err))
+    },
+
+    updateModels(id, params){
+        return genericPut('models', id, params)
+         .then(response =>  response.data)
+         .catch(err => console.log("Error:", err))
+    },
+
+    deleteModels(id){
+        return genericDelete('models', id)
+         .then(response =>  response.data)
+         .catch(err => console.log("Error:", err))
+    },
+
+    createModels(params){
+        return genericPost('models', params)
+         .then(response =>  response.data)
+         .catch(err => console.log("Error:", err))
+    },
+
+    getProtein(protein_id){
+        return genericGet('protein_data/' + protein_id)
+         .then(response =>  response.data)
+         .catch(err => console.log("Error:", err))
+    },
+
+
 }
 
 
