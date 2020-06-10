@@ -1,0 +1,414 @@
+/*------------------------Base-----------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Montserrat:400,700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background-image: url(../../assets/bg.jpg);
+}
+
+/*----------------------Estilos base----------------------*/
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+}
+
+.container--flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.column {
+    width: 100%;
+}
+
+/*----------------------Estilos header----------------------*/
+
+.main-header {
+    width: 100%;
+}
+
+.logo {
+    font-size: 1.8em;
+    color: #FFFFFF;
+    padding: 10px;
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 100;
+}
+
+/*----------------------Estilos del Menú----------------------*/
+
+.main-nav {
+    width: 100%;  
+    position: relative;
+    z-index: 2000;
+    padding: 10px;
+}
+
+.icon-menu {
+    display: block;
+    color: white;
+    border: 1px solid white;
+    border-radius: 3px;
+    width: 40px;
+    height: 40px;
+    line-height: 45px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,.85);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    height: 0;
+    overflow: hidden;
+    transition: height .3s linear;  
+}
+
+.menu__link {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.menu__link:hover {
+    background: #368CED;
+}
+
+.menu__link--select {
+    background: #368CED;
+}
+
+.mostrar {
+    height: 196px;
+}
+
+/*----------------------Estilos principales----------------------*/
+
+.formulario {
+    padding: 10px;
+    padding-top: 0;
+}
+
+.formulario__label {
+    text-align: center;
+}
+.formulario__label, .formulario__input-txt {
+    display: block;
+    width: 100%;
+    color: #FFFFFF;
+    padding-top: 10px;
+}
+.formulario__input-txt {
+    padding: 10px;
+    margin-bottom: 10px;
+    color: black;
+    font-size: 1em;
+}
+
+.formulario__btn {
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    width: 120px;
+    background: #DE423A;
+    color: white;
+    padding: 10px;
+    margin: 0px auto;
+}
+
+/*----------------------Estilos responsive ----------------------*/
+
+@media screen and (min-width:480px) {
+    
+    .logo {
+        color: #FFFFFF;
+    }
+    
+    .main-nav {
+        background: rgba(0,0,0,.85);
+    }
+    
+    .main {
+        padding-bottom: 15px;
+    }
+    
+    .column--50 {
+        width: 49%;
+    }
+    
+}
+
+@media screen and (min-width:1024px) {
+    
+    .container {
+        width: 1000px;
+        margin-left: 30%;
+    }
+    .logo {
+        font-size: 2em;
+        padding: 20px;
+    }
+    .main-nav {
+        background: rgba(0,0,0,.85);
+        padding: 0;
+    }
+    .icon-menu {
+        display: none;
+    }
+    .menu {
+        position: static;
+        display: flex;
+        height: auto;
+        width: auto;
+        background: rgba(0,0,0,0);
+    }
+    .menu__link {
+        padding: 20px;
+    }
+    .fold-desktop{
+        margin-left: 35%;
+    }
+    .input-chain-desktop{
+        margin-left: 30%;
+    }
+}
+
+@media screen and (min-width:1600px) {
+    .container {
+        width: 1400px;
+    }
+}
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Montserrat:400,700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background-image: url(../../assets/bg.jpg);
+}
+
+/*----------------------Estilos base----------------------*/
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+}
+
+.container--flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.column {
+    width: 100%;
+}
+
+/*----------------------Estilos header----------------------*/
+
+.main-header {
+    width: 100%;
+}
+
+.logo {
+    font-size: 1.8em;
+    color: #FFFFFF;
+    padding: 10px;
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 100;
+}
+
+/*----------------------Estilos del Menú----------------------*/
+
+.main-nav {
+    width: 100%;  
+    position: relative;
+    z-index: 2000;
+    padding: 10px;
+}
+
+.icon-menu {
+    display: block;
+    color: white;
+    border: 1px solid white;
+    border-radius: 3px;
+    width: 40px;
+    height: 40px;
+    line-height: 45px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,.85);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    height: 0;
+    overflow: hidden;
+    transition: height .3s linear;  
+}
+
+.menu__link {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.menu__link:hover {
+    background: #368CED;
+}
+
+.menu__link--select {
+    background: #368CED;
+}
+
+.mostrar {
+    height: 196px;
+}
+
+/*----------------------Estilos principales----------------------*/
+
+.formulario {
+    padding: 10px;
+    padding-top: 0;
+}
+
+.formulario__label {
+    text-align: center;
+}
+.formulario__label, .formulario__input-txt {
+    display: block;
+    width: 100%;
+    color: #FFFFFF;
+    padding-top: 10px;
+}
+.formulario__input-txt {
+    padding: 10px;
+    margin-bottom: 10px;
+    color: black;
+    font-size: 1em;
+}
+
+.formulario__btn {
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn-custom {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    width: 120px;
+    background: #DE423A;
+    color: white;
+    padding: 10px;
+    margin: 0px auto;
+}
+
+/*----------------------Estilos responsive ----------------------*/
+
+@media screen and (min-width:480px) {
+    
+    .logo {
+        color: #FFFFFF;
+    }
+    
+    .main-nav {
+        background: rgba(0,0,0,.85);
+    }
+    
+    .main {
+        padding-bottom: 15px;
+    }
+    
+    .column--50 {
+        width: 49%;
+    }
+    
+}
+
+@media screen and (min-width:1024px) {
+    
+    .container {
+        width: 1000px;
+      
+    }
+    .logo {
+        font-size: 2em;
+        padding: 20px;
+    }
+    .main-nav {
+        background: rgba(0,0,0,.85);
+        padding: 0;
+    }
+    .icon-menu {
+        display: none;
+    }
+    .menu {
+        position: static;
+        display: flex;
+        height: auto;
+        width: auto;
+        background: rgba(0,0,0,0);
+    }
+    .menu__link {
+        padding: 20px;
+    }
+}
+
+@media screen and (min-width:1600px) {
+    .container {
+        width: 1400px;
+    }
+}
