@@ -11,7 +11,7 @@ const ProtInput = (props) => {
             <div className="column column--50 text-center pull-right">
             <h1 className="logo">{props.title}</h1>
                 <label for="" className="formulario__label">{props.label}</label>
-                <input type="text"  style={{textTransform:"uppercase"}}className="formulario__input-txt" onChange={ (e) => setChain(e.target.value) } name="aminoacido"
+                <input type="text"  style={{textTransform:"uppercase"}} className="formulario__input-txt" onChange={ (e) => setChain(e.target.value) } name="aminoacido"
                     value={props.value} />
                 <input type="button" className="btn-custom formulario__btn" onClick={() => props.run_function(chain)} value="Plegar"/>
             </div>  

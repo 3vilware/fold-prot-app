@@ -86,7 +86,7 @@ export default function HomeView() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [selectedFunction, setSelectedFunction] = React.useState("multiFold")
+  const [selectedFunction, setSelectedFunction] = React.useState("mymodels")
 
   const handleDrawerOpen = () => {
     setOpen(true);

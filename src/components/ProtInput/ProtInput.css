@@ -9,7 +9,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-    background-image: url(../../assets/bg.jpg);
+    background-image: #1995ad /*url(../../assets/bg.jpg);*/
 }
 
 /*----------------------Estilos base----------------------*/
@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .logo {
     font-size: 1.8em;
-    color: #FFFFFF;
+    color: black;
     padding: 10px;
     font-family: 'Bebas Neue', cursive;
     font-weight: 100;
@@ -117,7 +117,7 @@ h1, h2, h3, h4, h5, h6 {
 .formulario__label, .formulario__input-txt {
     display: block;
     width: 100%;
-    color: #FFFFFF;
+    color: black;
     padding-top: 10px;
 }
 .formulario__input-txt {
@@ -149,7 +149,7 @@ h1, h2, h3, h4, h5, h6 {
 @media screen and (min-width:480px) {
     
     .logo {
-        color: #FFFFFF;
+        color: black;
     }
     
     .main-nav {
@@ -221,7 +221,7 @@ h1, h2, h3, h4, h5, h6 {
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-    background-image: url(../../assets/bg.jpg);
+    background-image: #1995ad /*url(../../assets/bg.jpg);*/
 }
 
 /*----------------------Estilos base----------------------*/
@@ -254,7 +254,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .logo {
     font-size: 1.8em;
-    color: #FFFFFF;
+    color: black;
     padding: 10px;
     font-family: 'Bebas Neue', cursive;
     font-weight: 100;
@@ -329,7 +329,7 @@ h1, h2, h3, h4, h5, h6 {
 .formulario__label, .formulario__input-txt {
     display: block;
     width: 100%;
-    color: #FFFFFF;
+    color: black;
     padding-top: 10px;
 }
 .formulario__input-txt {
@@ -361,7 +361,7 @@ h1, h2, h3, h4, h5, h6 {
 @media screen and (min-width:480px) {
     
     .logo {
-        color: #FFFFFF;
+        color: black;
     }
     
     .main-nav {

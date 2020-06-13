@@ -1,18 +1,18 @@
 import React from 'react';
 import MaterialTable from 'material-table';
 import API from '../../API';
+import FileModal from '../Modal/FileModal'
+
 var _ = require('lodash');
 
 const MyModels = (props) => {
+    const [modalShow, setModalShow] = React.useState(false);
+    const [modelState, setModelState] = React.useState([]);
     const [state, setState] = React.useState({
         columns: [
           { title: 'Name', field: 'name' },
           { title: 'Description', field: 'description' },
           { title: 'Publico', field: 'public',},
-          {
-            title: 'File',
-            field: 'file',
-          },
           {
             title: 'ID',
             field: 'id',
@@ -31,7 +31,7 @@ const MyModels = (props) => {
           let data = [...prevState.data];
           data = []
           response.map( (model) => {
-          let newData = { name: model.name, description: model.description, public: model.public===true ? "Si" : "No" , file: "Construction...",  id: model.id };
+          let newData = { name: model.name, description: model.description, public: model.public===true ? "Si" : "No" , id: model.id };
           data.push(newData);
           })
           return { ...prevState, data };
@@ -67,6 +67,18 @@ const MyModels = (props) => {
             title="Mis Modelos"
             columns={state.columns}
             data={state.data}
+
+            actions={[
+              {
+                icon: 'publish',
+                tooltip: 'Subir modelo',
+                onClick: (event, rowData) => {
+                  setModalShow(!modalShow) //alert("Mostrar en modal " + rowData.pdb)
+                  console.log(rowData)
+                  setModelState(rowData);
+                 /*  setPdb(rowData.pdb.split('/')[2]) */
+              }
+            }]}
             editable={{
               onRowAdd: (newData) =>
                 new Promise((resolve) => {
@@ -115,7 +127,16 @@ const MyModels = (props) => {
                 }),
             }}
           />
-    
+
+        <FileModal 
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+          id={modelState.id}
+          name={modelState.name}
+          description={modelState.description}
+          public={modelState.public}
+          >
+        </FileModal>
           
         </div>
        
