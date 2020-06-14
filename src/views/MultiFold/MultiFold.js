@@ -18,9 +18,11 @@ const SingleFold = (props) => {
     const [job_id, setJobId] = useState("");
 
 
-    async function sendJob(chain){
+    async function sendJob(chain, selectedModel){
+        let selecedModel = selectedModel === null ? selectedModel : 1;
         console.log("Sended job chain", chain);
-        const response = await API.runJob({chain: chain.toUpperCase()})
+        console.log("Model", selectedModel);
+        const response = await API.runJob({chain: chain.toUpperCase(), model:selectedModel})
         if(response.pdb_name){
             setPdbName(response.pdb_name);
             setShowFold(true);
@@ -29,13 +31,13 @@ const SingleFold = (props) => {
         console.log("JOB", response);
     }
 
-    async function getProtein(protein_id){
+    async function getProtein(protein_id, selectedModel){
         console.log("Sended Prot");
         const response = await API.getProtein(protein_id)
         if(response.response === "success"){
             setFastaSeq(response.fasta);
             setOriginalPdbName(response.pdb);
-            sendJob(response.fasta);
+            sendJob(response.fasta, selectedModel);
         }
         console.log("JOB", response);
     }

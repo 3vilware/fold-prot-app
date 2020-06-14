@@ -10,9 +10,11 @@ const SingleFold = (props) => {
     const [job_id, setJobId] = useState("");
 
 
-    async function sendJob(chain){
+    async function sendJob(chain, selectedModel){
+        let selecedModel = selectedModel === null ? selectedModel : 1;
         console.log("Sended job chain", chain);
-        const response = await API.runJob({chain: chain.toUpperCase()})
+        console.log("Model", selectedModel);
+        const response = await API.runJob({chain: chain.toUpperCase(), model:selectedModel})
         if(response.pdb_name){
             setPdbName(response.pdb_name);
             setShowFold(true);
