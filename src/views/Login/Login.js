@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import './Login.css'
 import $ from 'jquery';
 import API from '../../API'
+import Sky from 'react-sky';
 
 const Login = (props) => {
 
@@ -11,13 +12,10 @@ const Login = (props) => {
     const [email,setEmail] = useState('ricardo@mdh.com')
     const [first_name,setFirstName] = useState('Richard')
 
-    function handleChange(){
-        setCount(count + 5);
-    }
-    async function getJobs(){
+/*     async function getJobs(){
         const response = await API.getJobs()
         console.log(response);
-    }
+    } */
 
     async function startLogin(e){
         e.preventDefault();
@@ -124,12 +122,28 @@ const Login = (props) => {
     }
 
 
-    useEffect(mainJs); // Didmount equivalent 
+    useEffect( () =>{
+        if(localStorage.getItem("AUTH") !== null){
+            window.location = "/"
+        }
+        mainJs();
+    }); // Didmount equivalent 
     
     return (
         <div>
+            <Sky
+                images={{
+                    /* FORMAT AS FOLLOWS */
+                    0: "https://cdn0.iconfinder.com/data/icons/education-283/64/Chemical_structure-molecule-molecule_structure-512.png",  /* You can pass as many images as you want */
+                    // 1: "https://www.pinclipart.com/picdir/middle/171-1717857_carbon-dioxide-molecule-transparent-clipart.png",
+
+                }}
+                how={130} /* Pass the number of images Sky will render chosing randomly */
+                time={40} /* time of animation */
+                size={'100px'} /* size of the rendered images */
+                background={'palettedvioletred'} /* color of background */
+            />
             <div className="contenedor-form">
-                {count}
                 <div className="toggle" data-text-swap="Regresar">
                     <span> Crear Cuenta</span>
                 </div>
@@ -166,9 +180,6 @@ const Login = (props) => {
                 <div className="reset-password" data-text-swap="Regresar" id="resetpass">
                     <span><a href="#">Olvide mi contraseña?</a></span>
                 </div>
-
-                <button onClick={handleChange}>TEST</button>
-                <button onClick={getJobs}>GETDATA</button>
                 
             </div>
         </div>

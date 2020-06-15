@@ -6,7 +6,7 @@ function genericGet(endpoint){
 
     return axios.get(API_URL + endpoint, {
         headers: {
-        'Authorization': 'Token cfeba2fe43d89c2ee12831c7ee2431fa9594a9d7'
+        'Authorization': 'Token ' + localStorage.getItem('AUTH')
     }})
 }
 
@@ -16,7 +16,7 @@ function genericPut(endpoint, id, params){
         params,
     {
         headers: {
-        'Authorization': 'Token cfeba2fe43d89c2ee12831c7ee2431fa9594a9d7'
+        'Authorization':  'Token ' + localStorage.getItem('AUTH')
         }
     })
 }
@@ -26,40 +26,51 @@ function genericDelete(endpoint, id){
     return axios.delete(API_URL + endpoint + '/' + String(id), 
     {
         headers: {
-        'Authorization': 'Token cfeba2fe43d89c2ee12831c7ee2431fa9594a9d7'
+        'Authorization':  'Token ' + localStorage.getItem('AUTH')
         }
     })
 }
 
-function genericPost(endpoint, params){
+function genericPost(endpoint, params, auth=false){
     console.log("*****************************\nSending", params);
-    return axios.post(API_URL + endpoint, 
+    if(auth){
+        return axios.post(API_URL + endpoint, 
+            params, 
+        )
+    }else{
+        return axios.post(API_URL + endpoint, 
         params, 
         {headers: {
-        'Authorization': 'Token cfeba2fe43d89c2ee12831c7ee2431fa9594a9d7' 
+        'Authorization':  'Token ' + localStorage.getItem('AUTH')
         }
     })
+    }
+    
 }
 
 const API = {
 
     login(params){
-        genericPost('login', params)
+        genericPost('login', params, true)
         .then(response =>  {
             // todo: localStorage Save token 
             let token = response.data.token;
             console.log("Token",token);
+            localStorage.setItem("AUTH", token);
+            window.location = "/"
         })
         .catch(err => console.log("Error:", err))
     },
 
     register(params){
-        genericPost('register/', params)
+        genericPost('register/', params, true)
         .then(response =>  {
             // todo: localStorage Save token 
             if(response.data.token){
                 let token = response.data.token;
                 console.log("Token",token);
+                localStorage.setItem("AUTH", token);
+                window.location = "/"
             }else{
                 console.log(response.data);
             }

@@ -8,6 +8,7 @@ var _ = require('lodash');
 const MyModels = (props) => {
     const [modalShow, setModalShow] = React.useState(false);
     const [modelState, setModelState] = React.useState([]);
+    const [emptyUser, setEmptyUser] = React.useState(false);
     const [state, setState] = React.useState({
         columns: [
           { title: 'Name', field: 'name' },
@@ -26,7 +27,9 @@ const MyModels = (props) => {
 
     async function getModels(){
       const response = await API.getModels()
-
+      if(_.isEmpty(response)){
+        setEmptyUser(true);
+      }
       setState( (prevState) => {
           let data = [...prevState.data];
           data = []
@@ -55,9 +58,11 @@ const MyModels = (props) => {
 
 
     React.useEffect(() => {
-        if (_.isEmpty(state.data)){
+      if (_.isEmpty(state.data)){
+        if(!emptyUser){
             getModels()
         }
+    }
     })
     
     

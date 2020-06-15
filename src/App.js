@@ -15,11 +15,8 @@ import {
   Link
 } from "react-router-dom";
 
-
-function App() {
-  return (
-    <div className="App">
-       <Sky
+const comp = `
+<Sky
           images={{
             /* FORMAT AS FOLLOWS */
             0: "https://cdn0.iconfinder.com/data/icons/education-283/64/Chemical_structure-molecule-molecule_structure-512.png",  /* You can pass as many images as you want */
@@ -31,15 +28,26 @@ function App() {
           size={'100px'} /* size of the rendered images */
           background={'palettedvioletred'} /* color of background */
         />
+  `
+
+function App() {
+  return (
+    <div className="App">
+       
      <Router>
 
         {/* <Route path="/">
           <HomeView/>
         </Route>
          */}
-         
+         <Route path="/login">
+          <Login init={50}/>
+        </Route>
+
         <Route path="/">
-          <HomeView/>
+          { window.location.pathname === "/" && (
+            <HomeView/>
+          )}
         </Route>
 
 
@@ -47,9 +55,7 @@ function App() {
           <SingleFold/>
         </Route>
 
-        <Route path="/login">
-          <Login init={50}/>
-        </Route>
+        
 
      </Router>
     </div>

@@ -24,6 +24,13 @@ import MultiFold from '../MultiFold/MultiFold';
 import MyModels from '../../components/MyModels/MyModels'
 import CodeEditor from '../../components/CodeEditor/CodeEditor'
 
+import WavesIcon from '@material-ui/icons/Waves';
+import SyncAltIcon from '@material-ui/icons/SyncAlt';
+import HistoryIcon from '@material-ui/icons/History';
+import CloudQueueIcon from '@material-ui/icons/CloudQueue';
+import AccountTreeIcon from '@material-ui/icons/AccountTree';
+
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -87,7 +94,7 @@ export default function HomeView() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [selectedFunction, setSelectedFunction] = React.useState("modelsEditor")
+  const [selectedFunction, setSelectedFunction] = React.useState("singleFold")
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -96,6 +103,19 @@ export default function HomeView() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  React.useEffect( () => {
+    const token = localStorage.getItem("AUTH") 
+    console.log(window.location.pathname)
+    if( token === null || token === ""){
+      if(String(window.location.pathname) !== '/login'){
+        window.location = '/login'
+      }else{
+        console.log(window.location.pathname)
+        alert("nologin")
+      }
+    }
+  })
 
   return (
     <div className={classes.root}>
@@ -139,27 +159,27 @@ export default function HomeView() {
         <Divider />
         <List>
         <ListItem button key={''} onClick={ () => {setSelectedFunction('singleFold')}}>
-                <ListItemIcon>{}</ListItemIcon>
+                <ListItemIcon> <WavesIcon/> </ListItemIcon>
                 <ListItemText primary={'Predecir'} />
           </ListItem>
           <ListItem button key={''} onClick={ () => {setSelectedFunction('multiFold')}}>
-                <ListItemIcon>{}</ListItemIcon>
+                <ListItemIcon> <SyncAltIcon/> </ListItemIcon>
                 <ListItemText primary={'Comparar Plegamientos'} />
           </ListItem>
           <ListItem button key={'Historial'} onClick={ () => {setSelectedFunction('history')}}>
-                <ListItemIcon>{}</ListItemIcon>
+                <ListItemIcon> <HistoryIcon/> </ListItemIcon>
                 <ListItemText primary={'Historial Plegamientos'} />
           </ListItem>
           <ListItem button key={'Mis Modelos'} onClick={ () => {setSelectedFunction('mymodels')}}>
-                <ListItemIcon>{}</ListItemIcon>
+                <ListItemIcon> <CloudQueueIcon/> </ListItemIcon>
                 <ListItemText primary={'Mis Modelos'} />
           </ListItem>
-          <ListItem button key={'Models-Hub'} onClick={ () => {setSelectedFunction('history')}}>
+         {/*  <ListItem button key={'Models-Hub'} onClick={ () => {setSelectedFunction('history')}}>
                 <ListItemIcon>{}</ListItemIcon>
                 <ListItemText primary={'Models-Hub'} />
-          </ListItem>
+          </ListItem> */}
           <ListItem button key={'Editor De Modelos'} onClick={ () => {setSelectedFunction('modelsEditor')}}>
-                <ListItemIcon>{}</ListItemIcon>
+                <ListItemIcon> <AccountTreeIcon/> </ListItemIcon>
                 <ListItemText primary={'Editor De Modelos'} />
           </ListItem>
         {/*   {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
@@ -171,7 +191,10 @@ export default function HomeView() {
         </List>
         <Divider />
         <List>
-          <ListItem button key={''}>
+          <ListItem button key={''} onClick={() => {
+            localStorage.removeItem("AUTH");
+            window.location = "/";
+          }}>
             <ListItemIcon> <InboxIcon /> </ListItemIcon>
             <ListItemText primary={'Salir'} />
           </ListItem>

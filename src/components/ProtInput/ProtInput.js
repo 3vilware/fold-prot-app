@@ -11,17 +11,23 @@ const ProtInput = (props) => {
     const [chain, setChain] = useState("");
     const [models_data, setModelsData] = useState([]);
     const [selectedModel, setSelectedModel] = useState(null);
+    const [emptyUser, setEmptyUser] = useState(false);
     console.log("ChainValue", chain);
 
     async function getModels(){
         const response = await API.getModels()
         setModelsData(response)
+        if(_.isEmpty(response)){
+            setEmptyUser(true)
+        }
     }
 
 
     React.useEffect(() => {
         if (_.isEmpty(models_data)){
-            getModels()
+            if(!emptyUser){
+                getModels()
+            }
         }
     })
 
