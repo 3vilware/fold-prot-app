@@ -22,6 +22,7 @@ import TableData from '../../components/TableData';
 import SingleFold from '../SingleFold/SingleFold';
 import MultiFold from '../MultiFold/MultiFold';
 import MyModels from '../../components/MyModels/MyModels'
+import CodeEditor from '../../components/CodeEditor/CodeEditor'
 
 const drawerWidth = 240;
 
@@ -86,7 +87,7 @@ export default function HomeView() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [selectedFunction, setSelectedFunction] = React.useState("singleFold")
+  const [selectedFunction, setSelectedFunction] = React.useState("modelsEditor")
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -116,7 +117,7 @@ export default function HomeView() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Protein-Lab
+            Prot-Lab
           </Typography>
         </Toolbar>
       </AppBar>
@@ -157,6 +158,10 @@ export default function HomeView() {
                 <ListItemIcon>{}</ListItemIcon>
                 <ListItemText primary={'Models-Hub'} />
           </ListItem>
+          <ListItem button key={'Editor De Modelos'} onClick={ () => {setSelectedFunction('modelsEditor')}}>
+                <ListItemIcon>{}</ListItemIcon>
+                <ListItemText primary={'Editor De Modelos'} />
+          </ListItem>
         {/*   {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{}</ListItemIcon>
@@ -195,9 +200,13 @@ export default function HomeView() {
             { selectedFunction == "mymodels" && (
               <MyModels/>
             )}
-             { selectedFunction == "multiFold" && (
+            { selectedFunction == "multiFold" && (
               <MultiFold/>
             )}
+            { selectedFunction == "modelsEditor" && (
+              <CodeEditor/>
+            )}
+
 
 
             

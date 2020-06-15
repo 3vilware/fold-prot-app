@@ -74,6 +74,12 @@ const API = {
         .catch(err => console.log("Error:", err))
     },
 
+    generateModel(params){
+        return genericPost('sendCode', params)
+         .then(response =>  response.data)
+         .catch(err => console.log("Error:", err))
+    },
+
     runJob(params){
         return genericPost('run_job', params)
          .then(response =>  response.data)

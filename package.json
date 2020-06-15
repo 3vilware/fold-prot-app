@@ -13,11 +13,13 @@
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",
     "material-table": "^1.58.2",
+    "prismjs": "^1.20.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
+    "react-simple-code-editor": "^0.11.0",
     "react-sky": "^1.1.0"
   },
   "scripts": {
