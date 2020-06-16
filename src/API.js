@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://127.0.0.1:8000/'
+const API_URL = 'http://prot-lab-server-v3.eba-cddzjvsp.us-west-1.elasticbeanstalk.com/'
 
 function genericGet(endpoint){
 

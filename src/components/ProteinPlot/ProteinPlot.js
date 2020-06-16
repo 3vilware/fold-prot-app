@@ -8,7 +8,7 @@ const ProteinPlot = (props) => {
         <div>
             <div class="column--50">
                 <h2 className="our-graf__title" style={{color: "black"}}>{props.title}</h2>
-                <iframe class="our-graf__img" src={`http://127.0.0.1:8000/view_prot/` + props.protein_id}></iframe>
+                <iframe class="our-graf__img" src={`http://prot-lab-server-v3.eba-cddzjvsp.us-west-1.elasticbeanstalk.com/view_prot/` + props.protein_id}></iframe>
             </div>
         </div>
     )
