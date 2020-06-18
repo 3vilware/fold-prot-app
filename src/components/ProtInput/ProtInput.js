@@ -19,6 +19,8 @@ const ProtInput = (props) => {
         setModelsData(response)
         if(_.isEmpty(response)){
             setEmptyUser(true)
+        }else{
+            setSelectedModel(response[0].id)
         }
     }
 
@@ -39,7 +41,7 @@ const ProtInput = (props) => {
                 <input type="text"  style={{textTransform:"uppercase"}} className="formulario__input-txt" onChange={ (e) => setChain(e.target.value) } name="aminoacido"
                     value={props.value} />
 
-                 <Container style={{marginLeft:"22%"}}>
+                 <Container style={{marginLeft:"22%"}}> {/* 22% for local */}
                     <Col md={6}>
                         <Form>
                             <Form.Group controlId="exampleForm.SelectCustom">

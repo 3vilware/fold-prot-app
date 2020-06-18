@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-const API_URL = 'http://prot-lab-server-v3.eba-cddzjvsp.us-west-1.elasticbeanstalk.com/'
+//const API_URL = 'http://prot-lab-server-v3.eba-cddzjvsp.us-west-1.elasticbeanstalk.com/'
+const API_URL = 'http://5deaf7ba69d2.ngrok.io/'
+//const API_URL = 'http://127.0.0.1:8000/'
 
 function genericGet(endpoint){
 
@@ -57,6 +59,7 @@ const API = {
             let token = response.data.token;
             console.log("Token",token);
             localStorage.setItem("AUTH", token);
+            localStorage.setItem("USER_NAME", params.username);
             window.location = "/"
         })
         .catch(err => console.log("Error:", err))
@@ -70,6 +73,7 @@ const API = {
                 let token = response.data.token;
                 console.log("Token",token);
                 localStorage.setItem("AUTH", token);
+                localStorage.setItem("USER_NAME", params.username);
                 window.location = "/"
             }else{
                 console.log(response.data);

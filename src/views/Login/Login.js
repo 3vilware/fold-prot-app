@@ -7,10 +7,10 @@ import Sky from 'react-sky';
 const Login = (props) => {
 
     const [count, setCount] = useState(props.init);
-    const [user,setUser] = useState('rickCast')
-    const [password,setPassword] = useState('test1234')
-    const [email,setEmail] = useState('ricardo@mdh.com')
-    const [first_name,setFirstName] = useState('Richard')
+    const [user,setUser] = useState('')
+    const [password,setPassword] = useState('')
+    const [email,setEmail] = useState('')
+    const [first_name,setFirstName] = useState('')
 
 /*     async function getJobs(){
         const response = await API.getJobs()
@@ -141,9 +141,10 @@ const Login = (props) => {
                 how={130} /* Pass the number of images Sky will render chosing randomly */
                 time={40} /* time of animation */
                 size={'100px'} /* size of the rendered images */
-                background={'palettedvioletred'} /* color of background */
+                background={'#17a2b8'} /* color of background */
             />
-            <div className="contenedor-form">
+            
+            <div className="contenedor-form" style={{marginBottom:"10rem"}}>
                 <div className="toggle" data-text-swap="Regresar">
                     <span> Crear Cuenta</span>
                 </div>
@@ -177,9 +178,9 @@ const Login = (props) => {
                     </form>
                 </div>
                 
-                <div className="reset-password" data-text-swap="Regresar" id="resetpass">
+              {/*   <div className="reset-password" data-text-swap="Regresar" id="resetpass">
                     <span><a href="#">Olvide mi contraseña?</a></span>
-                </div>
+                </div> */}
                 
             </div>
         </div>

@@ -45,7 +45,7 @@ export default function UploadFile(props) {
          formData,
         {
             headers: {
-            'Authorization': 'Token cfeba2fe43d89c2ee12831c7ee2431fa9594a9d7'
+            'Authorization': 'Token ' + localStorage.getItem("AUTH")
             }
         }).then(resp =>{
             if(resp.status == 200){

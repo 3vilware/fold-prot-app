@@ -52,6 +52,8 @@ const useStyles = makeStyles((theme) => ({
 export default function BadgeAvatars() {
   const classes = useStyles();
 
+  const user_name = localStorage.getItem("USER_NAME");
+
   return (
     <div className={classes.root}>
       <StyledBadge
@@ -64,7 +66,7 @@ export default function BadgeAvatars() {
       >
         
         <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-         &nbsp; Ricardo
+         &nbsp; {user_name}
       </StyledBadge>
       
     </div>
